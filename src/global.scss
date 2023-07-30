@@ -37,6 +37,26 @@ h6,
 p,
 a,
 ion-title,
-ion-button {
+ion-button,
+ion-label,
+ion-input::placeholder,
+ion-input {
     font-family: 'Poppins', sans-serif;
+}
+
+ion-label {
+    font-size: 18px !important;
+}
+
+ion-input {
+    font-size: 20px !important;
+}
+
+ion-item {
+    border-radius: 10px;
+    margin: 10px 5px;
+
+    &.item-has-focus {
+        border-radius: 10px;
+    }
 }

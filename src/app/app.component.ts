@@ -1,5 +1,5 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { Component, EnvironmentInjector, ViewChild, inject } from '@angular/core';
+import { IonModal, IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,5 +12,19 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor() {}
+  loginRegisterModal: boolean = false;
+
+  constructor() {
+    let user = localStorage.getItem('userData');
+    if (user) { console.log('si', user) }
+    else { console.log('no', user); this.loginRegisterModal = true; }
+  }
+
+  @ViewChild(IonModal) modal!: IonModal;
+
+  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
 }
