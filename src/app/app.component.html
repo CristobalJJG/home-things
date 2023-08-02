@@ -1,39 +1,3 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
-
-  <ion-button id="loginModal">Login</ion-button>
-  <ion-modal trigger="loginModal">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Cancelar</ion-button>
-          </ion-buttons>
-          <ion-title>Inicia Sesión</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <!-- Nombre -->
-        <ion-item>
-          <ion-label position="stacked" for="name">Nombre</ion-label>
-          <ion-input type="text" placeholder="Cristóbal José Jiménez Gómez" id="name"></ion-input>
-        </ion-item>
-        <!-- Email -->
-        <ion-item>
-          <ion-label position="stacked" for="email">Correo Electrónico</ion-label>
-          <ion-input type="text" placeholder="cjjg@gmail.com" id="email"></ion-input>
-        </ion-item>
-        <!-- Contraseña -->
-        <ion-item>
-          <ion-label position="stacked" for="pass">Contraseña</ion-label>
-          <ion-input type="text" placeholder="123456789Abc" id="pass"></ion-input>
-        </ion-item>
-        <!-- Repetir Contraseña -->
-        <ion-item>
-          <ion-label position="stacked" for="rpass">Repite la contraseña</ion-label>
-          <ion-input type="text" placeholder="123456789Abc" id="rpass"></ion-input>
-        </ion-item>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
 </ion-app>
