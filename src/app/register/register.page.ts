@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  styleUrls: ['../login/login.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })

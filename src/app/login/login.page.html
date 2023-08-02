@@ -3,20 +3,27 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-
     <ion-title slot="center">Inicia Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
-  <!-- Email -->
-  <ion-item>
-    <ion-label position="stacked" for="email">Correo Electrónico</ion-label>
-    <ion-input type="text" placeholder="cjjg@gmail.com" id="email"></ion-input>
-  </ion-item>
-  <!-- Contraseña -->
-  <ion-item>
-    <ion-label position="stacked" for="pass">Contraseña</ion-label>
-    <ion-input type="text" placeholder="123456789Abc" id="pass"></ion-input>
-  </ion-item>
-  <ion-button>Enviar</ion-button>
+  <ion-grid>
+    <ion-row>
+      <!-- Email -->
+      <ion-item>
+        <ion-label position="stacked" for="email">Correo Electrónico</ion-label>
+        <ion-input type="text" placeholder="cjjg@gmail.com" id="email"></ion-input>
+      </ion-item>
+    </ion-row>
+    <!-- Contraseña -->
+    <ion-row>
+      <ion-item>
+        <ion-label position="stacked" for="pass">Contraseña</ion-label>
+        <ion-input type="text" placeholder="123456789Abc" id="pass"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="center">
+      <ion-button>Enviar</ion-button>
+    </ion-row>
+  </ion-grid>
 </ion-content>

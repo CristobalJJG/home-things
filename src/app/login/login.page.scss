@@ -1,0 +1,22 @@
+ion-row {
+    width: 60%;
+    margin-left: 20%;
+}
+
+ion-item {
+    width: 100%;
+}
+
+.center {
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+/* Menos de 500px */
+@media (max-width: 500px) {
+    ion-row {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
