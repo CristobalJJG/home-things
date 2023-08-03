@@ -31,16 +31,40 @@
   </ion-grid>
 
   <ion-grid *ngIf="notUserRegistered">
-    Usuario Registrado, muchas gracias, tu Info:<br />
-    {{user?.name}},<br />
-    {{user?.surname}},<br />
-    {{user?.fullname}},<br />
-    {{user?.username}},<br />
-    {{user?.email}},<br />
-    {{user?.isAdmin}},<br />
-    {{user?.registerDate}},<br />
-    {{user?.lastLoginDate}},<br />
-    {{user?.isKitchenValidated}},<br />
-    {{user?.isMoneyValidated}}<br />
+    <ion-row>
+      <ion-col>
+        <ion-item class="box">
+          <ion-text class="text">
+            <strong>Usuario Registrado</strong>, muchas gracias, <br />
+            <ion-text class="info-title">Tu Info:</ion-text><br />
+            <strong>Nombres</strong>: {{user?.name}},<br />
+            <strong>Apellidos</strong>: {{user?.surname}},<br />
+            <strong>Username</strong>: {{user?.username}},<br />
+            <strong>Correo</strong>: {{user?.email}},<br />
+            <strong>Admin</strong>: {{user?.isAdmin}},<br />
+            <strong>Zona_Comida</strong>: {{user?.isKitchenValidated}},<br />
+            <strong>Zona_Gastos</strong>: {{user?.isMoneyValidated}}<br />
+            <strong>Data</strong>: {{user?.data?.length}}
+          </ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
   </ion-grid>
+  <section class="grid">
+    <!-- Columna 1 -->
+    <ion-item>
+      <ion-toggle [checked]="user?.isKitchenValidated"
+        (ionChange)="updateValidatedSection('kitchen')">Cocina</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [checked]="user?.isMoneyValidated" (ionChange)="updateValidatedSection('money')">Gastos</ion-toggle>
+    </ion-item>
+    <!-- Columna 2 coming soon -->
+    <ion-item>
+      <ion-toggle disabled>Coming soon...</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle disabled>Coming soon...</ion-toggle>
+    </ion-item>
+  </section>
 </ion-content>

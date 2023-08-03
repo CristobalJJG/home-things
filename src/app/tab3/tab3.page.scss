@@ -18,6 +18,10 @@ ion-icon {
     height: $l-icon;
 }
 
+ion-toggle {
+    width: 200px;
+}
+
 .title {
     width: 100%;
     height: 150px;
@@ -25,6 +29,33 @@ ion-icon {
     text-overflow: initial;
     overflow: visible;
     white-space: normal;
+}
+
+.box,
+.grid {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}
+
+.text {
+    padding: 30px 10px;
+    line-height: 25px;
+    width: 100%;
+}
+
+.info-title {
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 25px 0 0 0;
 }
 
 
@@ -36,6 +67,48 @@ ion-icon {
     }
 
     ion-button {
+        width: 200px;
+    }
+}
+
+/* Más de 1000px */
+@media (max-width: 1100px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    ion-toggle {
+        width: 175px;
+    }
+}
+
+/* Más de 768px */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    ion-toggle {
+        width: 175px;
+    }
+}
+
+/* menos de 768px*/
+@media (max-width: 500px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    ion-toggle {
+        width: 250px;
+    }
+}
+
+/* menos de 768px*/
+@media (max-width: 400px) {
+
+    ion-toggle {
         width: 200px;
     }
 }

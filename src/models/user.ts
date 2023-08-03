@@ -1,3 +1,5 @@
+import { Tipe } from "./tipe";
+
 export class User {
 
     name: string = "";
@@ -10,9 +12,10 @@ export class User {
     lastLoginDate: Date | undefined;
     isKitchenValidated: boolean = false;
     isMoneyValidated: boolean = false;
+    data: Tipe[] = [];
 
     constructor(name: string, surname: string, fullname: string, username: string, email: string
-        , isAdmin: boolean, rd: Date, lld: Date, ikv: boolean, imv: boolean) {
+        , isAdmin: boolean, rd: Date, lld: Date, ikv: boolean, imv: boolean, data: Tipe[]) {
         this.name = name;
         this.surname = surname;
         this.fullname = fullname;
@@ -23,6 +26,7 @@ export class User {
         this.lastLoginDate = lld;
         this.isKitchenValidated = ikv;
         this.isMoneyValidated = imv;
+        this.data = data;
     }
 
     static fromJsonToUser(user: any) {
@@ -36,7 +40,8 @@ export class User {
             user['registerDate'],
             user['lastLoginDate'],
             user['isKitchenValidated'],
-            user['isMoneyValidated']
+            user['isMoneyValidated'],
+            user['data']
         );
     }
 }

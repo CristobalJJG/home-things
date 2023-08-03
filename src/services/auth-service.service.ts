@@ -7,7 +7,7 @@ import {
 
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
-import { FirestoreService } from './firestore-service.service';
+import { UserService } from './user-service.service';
 import { User } from 'src/models/user';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class AuthService {
   public static app = initializeApp(environment.firebaseConfig);
 
   auth = getAuth(AuthService.app);
-  constructor(protected db: FirestoreService) {
+  constructor(protected db: UserService) {
     this.getUserInfo();
   }
 

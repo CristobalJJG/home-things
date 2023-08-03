@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import { AuthService } from './auth-service.service';
+import { User } from 'src/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -52,25 +53,27 @@ export class UserService {
       registerDate: new Date(),
       lastLoginDate: new Date(),
       isKitchenValidated: false,
-      isMoneyValidated: false
+      isMoneyValidated: false,
+      data: []
     });
   }
 
-  async updateUser(user: any) {
+  async updateUser(user: User) {
     try {
-      await setDoc(doc(this.db, "users", user.email.split('@')[0].toLowerCase()), {
+      await setDoc(doc(this.db, "users", user.email.split('@')[0]), {
         name: user.name,
         surname: user.surname,
         fullname: user.fullname,
         username: user.username,
         email: user.email,
-        isAdmin: false,
+        isAdmin: user.isAdmin,
         registerDate: user.registerDate,
-        lastLoginDate: new Date(),
-        isKitchenValidated: false,
-        isMoneyValidated: false
+        lastLoginDate: user.lastLoginDate,
+        isKitchenValidated: user.isKitchenValidated,
+        isMoneyValidated: user.isMoneyValidated,
+        data: user.data || []
       });
-      window.location.reload();
+      /* window.location.reload(); */
     } catch (e) { console.error(e) };
   }
 

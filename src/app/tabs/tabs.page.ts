@@ -13,14 +13,19 @@ import { AuthService } from 'src/services/auth-service.service';
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
-  user: User | undefined
+  static user: User | undefined
   notUserRegistered = false;
 
   constructor(private auth: AuthService) {
     let aux = this.auth.getUserInfo();
     if (aux != undefined) {
       this.notUserRegistered = true;
-      this.user = aux;
+      TabsPage.user = aux;
     }
   }
+
+  static update(user: User) { TabsPage.user = user; }
+
+  isMoneyValidated() { return TabsPage.user?.isMoneyValidated }
+  isKitchenValidated() { return TabsPage.user?.isKitchenValidated }
 }
