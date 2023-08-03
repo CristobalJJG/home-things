@@ -29,6 +29,7 @@
 
 @import './theme/sizes.scss';
 @import './theme/variables.scss';
+@import './theme/colors.scss';
 
 h1,
 h2,
@@ -75,4 +76,8 @@ ion-title {
 ion-button {
     width: 150px;
     height: 50px;
+}
+
+.danger {
+    color: $danger;
 }

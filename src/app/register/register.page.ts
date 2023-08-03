@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -10,11 +10,10 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class RegisterPage implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+export class RegisterPage {
+  save(form: any) {
+    console.log(form.value)
+    console.log(form.controls)
   }
-
 }

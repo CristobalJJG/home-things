@@ -10,4 +10,9 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class LoginPage { }
+export class LoginPage {
+  save(form: any) {
+    console.log(form.value)
+    console.log(form.controls)
+  }
+}

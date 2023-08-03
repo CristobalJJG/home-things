@@ -1,3 +1,7 @@
+ion-input {
+    transition: all .4s ease-in-out;
+}
+
 ion-row {
     width: 60%;
     margin-left: 20%;
@@ -11,7 +15,6 @@ ion-item {
     justify-content: center;
     margin-top: 50px;
 }
-
 
 /* Menos de 500px */
 @media (max-width: 500px) {

@@ -8,22 +8,42 @@
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-grid>
-    <ion-row>
-      <!-- Email -->
-      <ion-item>
-        <ion-label position="stacked" for="email">Correo Electrónico</ion-label>
-        <ion-input type="text" placeholder="cjjg@gmail.com" id="email"></ion-input>
-      </ion-item>
-    </ion-row>
-    <!-- Contraseña -->
-    <ion-row>
-      <ion-item>
-        <ion-label position="stacked" for="pass">Contraseña</ion-label>
-        <ion-input type="text" placeholder="123456789Abc" id="pass"></ion-input>
-      </ion-item>
-    </ion-row>
-    <ion-row class="center">
-      <ion-button>Enviar</ion-button>
-    </ion-row>
+    <form #f="ngForm" (ngSubmit)="save(f)">
+      <ion-row>
+        <!-- Email -->
+        <ion-item>
+          <ion-label position="stacked" for="email">Correo Electrónico</ion-label>
+          <ion-input type="email" placeholder="cjjg@gmail.com" id="email" #email name="email" ngModel
+            required></ion-input>
+        </ion-item>
+      </ion-row>
+
+      <!-- Contraseña -->
+      <ion-row>
+        <ion-item>
+          <ion-label position="stacked" for="pass">Contraseña</ion-label>
+          <ion-input type="password" placeholder="123456789Abc" id="password" #password name="password" ngModel
+            [pattern]="'[A-Za-z0-9-_., ]{6,}'" minlength="6" required></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row class="center">
+        <ion-button type="submit" [disabled]="!f.valid">Enviar</ion-button>
+      </ion-row>
+    </form>
   </ion-grid>
+
+  <div class="danger" *ngIf="!f.valid">
+    <!-- email -->
+    <ion-text *ngIf="f.controls['email'].invalid && 
+          (f.controls['email'].dirty || f.controls['email'].touched)">
+      <span>Escribe tu email de forma correcta.</span>
+    </ion-text>
+
+    <!-- Contraseña 1 -->
+    <ion-text *ngIf="f.controls['password'].invalid && 
+          (f.controls['password'].dirty || f.controls['password'].touched)">
+      <span>La contraseña solo pueden insertarse alfanuméricos (Letras y números)</span>
+      <span> y los caracteres especiales "-_., " y tiene que tener más de 5 caracteres.</span>
+    </ion-text>
+  </div>
 </ion-content>
