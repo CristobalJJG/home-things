@@ -50,7 +50,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <section class="grid">
+  <section class="grid" *ngIf="notUserRegistered">
     <!-- Columna 1 -->
     <ion-item>
       <ion-toggle [checked]="user?.isKitchenValidated"
