@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { User } from 'src/models/user';
+import { AuthService } from 'src/services/auth-service.service';
 
 @Component({
   selector: 'app-tabs',
@@ -11,13 +13,14 @@ import { IonicModule } from '@ionic/angular';
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
+  user: User | undefined
   notUserRegistered = false;
 
-  constructor() {
-    let user = localStorage.getItem('userData');
-    if (user) { console.log('si', user) }
-    else { console.log('no', user); this.notUserRegistered = true; }
-    console.log(this.notUserRegistered);
-
+  constructor(private auth: AuthService) {
+    let aux = this.auth.getUserInfo();
+    if (aux != undefined) {
+      this.notUserRegistered = true;
+      this.user = aux;
+    }
   }
 }

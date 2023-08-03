@@ -26,3 +26,16 @@ ion-icon {
     overflow: visible;
     white-space: normal;
 }
+
+
+/* Más de 1000px */
+@media (min-width: 1000px) {
+    ion-icon {
+        width: $xl-icon;
+        height: $xl-icon;
+    }
+
+    ion-button {
+        width: 200px;
+    }
+}

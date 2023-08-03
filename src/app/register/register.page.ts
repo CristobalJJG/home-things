@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { AuthService } from 'src/services/auth-service.service';
 
 @Component({
   selector: 'app-register',
@@ -12,8 +13,8 @@ import { IonicModule } from '@ionic/angular';
 })
 
 export class RegisterPage {
+  constructor(private auth: AuthService) { }
   save(form: any) {
-    console.log(form.value)
-    console.log(form.controls)
+    this.auth.registerEmailPass(form.value['email'], form.value['name'], form.value['password'], form.value['username']);
   }
 }

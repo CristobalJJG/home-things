@@ -1,12 +1,12 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <!-- Pestaña de Gastos -->
-    <ion-tab-button tab="tab1" *ngIf="!notUserRegistered">
+    <ion-tab-button tab="tab1" *ngIf="!notUserRegistered || (user?.isMoneyValidated )">
       <ion-icon name="wallet-outline"></ion-icon>
       <ion-label>Gastos</ion-label>
     </ion-tab-button>
     <!-- Pestaña de Comida -->
-    <ion-tab-button tab="tab2" *ngIf="!notUserRegistered">
+    <ion-tab-button tab="tab2" *ngIf="!notUserRegistered || (user?.isKitchenValidated )">
       <ion-icon name="fast-food-outline"></ion-icon>
       <ion-label>Comida</ion-label>
     </ion-tab-button>

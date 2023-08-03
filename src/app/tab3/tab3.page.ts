@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { User } from 'src/models/user';
+import { AuthService } from 'src/services/auth-service.service';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -11,11 +13,14 @@ import { CommonModule } from '@angular/common';
 })
 export class Tab3Page {
 
+  user: User | undefined
   notUserRegistered = false;
 
-  constructor() {
-    let user = localStorage.getItem('userData');
-    if (user) { console.log('si', user) }
-    else { console.log('no', user); this.notUserRegistered = true; }
+  constructor(private auth: AuthService) {
+    let aux = this.auth.getUserInfo();
+    if (aux != undefined) {
+      this.notUserRegistered = true;
+      this.user = aux;
+    }
   }
 }

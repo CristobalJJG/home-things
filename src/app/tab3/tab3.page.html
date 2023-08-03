@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="center">
-  <ion-grid *ngIf="notUserRegistered">
+  <!-- En caso de que el usuario no esté logeado -->
+  <ion-grid *ngIf="!notUserRegistered">
     <ion-row>
       <ion-col>
         <ion-icon name="person-outline"></ion-icon>
@@ -27,5 +28,19 @@
         <ion-text>la aplicación</ion-text>
       </ion-title>
     </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="notUserRegistered">
+    Usuario Registrado, muchas gracias, tu Info:
+    {{user?.name}},<br />
+    {{user?.surname}},<br />
+    {{user?.fullname}},<br />
+    {{user?.username}},<br />
+    {{user?.email}},<br />
+    {{user?.isAdmin}},<br />
+    {{user?.registerDate}},<br />
+    {{user?.lastLoginDate}},<br />
+    {{user?.isKitchenValidated}},<br />
+    {{user?.isMoneyValidated}}<br />
   </ion-grid>
 </ion-content>

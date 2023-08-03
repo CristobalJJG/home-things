@@ -15,8 +15,8 @@ export class FirestoreService {
     else console.log("No hay datos, señor");
   }
 
-  async addUser(mail: string, fullname: string) {
-    let username = mail.split("@")[0]
+  async addUser(mail: string, fullname: string, username: string) {
+    let internUsername = mail.split("@")[0];
 
     let name = "";
     let surname = "";
@@ -42,14 +42,17 @@ export class FirestoreService {
       }
     }
 
-    await setDoc(doc(this.db, "users", username.toLowerCase()), {
+    await setDoc(doc(this.db, "users", internUsername.toLowerCase()), {
       name: name,
       surname: surname,
+      fullname: fullname,
+      username: username,
       email: mail,
       isAdmin: false,
-      username: mail.split('@')[0].toLowerCase(),
-      gastos: [],
-      food: []
+      registerDate: new Date(),
+      lastLoginDate: new Date(),
+      isKitchenValidated: false,
+      isMoneyValidated: false
     });
   }
 
@@ -58,11 +61,14 @@ export class FirestoreService {
       await setDoc(doc(this.db, "users", user.email.split('@')[0].toLowerCase()), {
         name: user.name,
         surname: user.surname,
-        email: user.email,
-        isAdmin: user.isAdmin,
+        fullname: user.fullname,
         username: user.username,
-        gastos: user.gastos,
-        food: user.food
+        email: user.email,
+        isAdmin: false,
+        registerDate: user.registerDate,
+        lastLoginDate: new Date(),
+        isKitchenValidated: false,
+        isMoneyValidated: false
       });
       window.location.reload();
     } catch (e) { console.error(e) };
