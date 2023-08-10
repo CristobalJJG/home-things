@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { AuthService } from 'src/services/auth-service.service';
+import { Router } from '@angular/router';
+import { TabsPage } from '../tabs.page';
 
 @Component({
   selector: 'app-general',
@@ -12,9 +15,14 @@ import { IonicModule } from '@ionic/angular';
 })
 export class GeneralPage implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
+    console.log(TabsPage.user);
+    if (TabsPage.user) {
+      this.router.navigate(['/tabs/tab3']);
+    }
   }
+
 
 }

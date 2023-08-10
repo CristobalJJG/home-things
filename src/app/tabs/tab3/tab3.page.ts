@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { User } from 'src/models/user';
+
 import { AuthService } from 'src/services/auth-service.service';
 import { UserService } from 'src/services/user-service.service';
-import { TabsPage } from '../tabs/tabs.page';
+import { TabsPage } from '../tabs.page';
+
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -14,17 +16,10 @@ import { TabsPage } from '../tabs/tabs.page';
   imports: [IonicModule, RouterModule, CommonModule],
 })
 export class Tab3Page {
+  user = TabsPage.user
+  notUserRegistered = TabsPage.notUserRegistered
 
-  user: User | undefined
-  notUserRegistered = false;
-
-  constructor(private auth: AuthService, private db: UserService) {
-    let aux = this.auth.getUserInfo();
-    if (aux != undefined) {
-      this.notUserRegistered = true;
-      this.user = aux;
-    }
-  }
+  constructor(private auth: AuthService, private db: UserService) { }
 
   updateValidatedSection(section: string) {
     let hasSection = false;
@@ -40,5 +35,11 @@ export class Tab3Page {
     localStorage.setItem("userData", JSON.stringify(this.user));
     this.db.updateUser(this.user!);
     TabsPage.update(this.user!);
+  }
+
+  async logout() {
+    await this.auth.logOut();
+    TabsPage.update(undefined);
+    window.location.reload();
   }
 }
