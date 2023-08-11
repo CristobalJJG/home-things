@@ -35,7 +35,7 @@
       <ion-col>
         <ion-item class="box">
           <ion-text class="text">
-            <strong>Usuario Registrado</strong>, muchas gracias, <br />
+            <strong>Registrado</strong>, muchas gracias. <br />
             <ion-text class="info-title">Tu Info:</ion-text><br />
             <strong>Nombres</strong>: {{user?.name}},<br />
             <strong>Apellidos</strong>: {{user?.surname}},<br />
@@ -47,9 +47,7 @@
             <strong>Data</strong>: {{user?.data?.length}}
           </ion-text>
         </ion-item>
-        <ion-item>
-          <ion-button (click)="logout()">Cerrar Sesión</ion-button>
-        </ion-item>
+        <ion-button class="m-top" (click)="logout()">Cerrar Sesión</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

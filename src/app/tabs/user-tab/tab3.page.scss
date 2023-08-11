@@ -95,9 +95,27 @@ ion-toggle {
 
 /* menos de 768px*/
 @media (max-width: 500px) {
+    .info-title {
+        font-size: medium;
+        margin: 15px 0 0 0;
+    }
+
+    .m-top,
+    ion-row {
+        margin-top: 15px;
+    }
+
+    ion-item {
+        margin: 10px 0 0 0;
+    }
+
+    .text {
+        padding: 15px 5px;
+    }
 
     .grid {
         grid-template-columns: 1fr;
+        margin-bottom: 15px;
     }
 
     ion-toggle {

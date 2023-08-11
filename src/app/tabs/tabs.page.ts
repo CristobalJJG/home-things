@@ -11,6 +11,7 @@ import { AuthService } from 'src/services/auth-service.service';
   imports: [IonicModule, CommonModule],
 })
 export class TabsPage {
+  MAX_TABS = 3;
   public environmentInjector = inject(EnvironmentInjector);
 
   static user: User | undefined
@@ -29,4 +30,18 @@ export class TabsPage {
   isMoneyValidated() { return TabsPage.user?.isMoneyValidated }
   isKitchenValidated() { return TabsPage.user?.isKitchenValidated }
   userRegistered() { return TabsPage.notUserRegistered }
+
+  maxTabs() {
+    let c = 0;
+    if (TabsPage.user?.isMoneyValidated) c++;
+    if (TabsPage.user?.isKitchenValidated) c++;
+    if (TabsPage.notUserRegistered) c++;
+    if (c > this.MAX_TABS) this.setOpen(true)
+    return c <= this.MAX_TABS;
+  }
+
+  isToastOpen = false;
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+  }
 }
