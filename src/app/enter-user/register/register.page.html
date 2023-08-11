@@ -1,9 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+    <ion-back-button slot="start" style="width: 10%;"></ion-back-button>
     <ion-title>Regístrate</ion-title>
+    <span slot="end" style="width: 10%;"></span>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +12,7 @@
       <!-- Nombre -->
       <ion-row>
         <ion-item>
-          <ion-label position="stacked" for="name">Nombre real</ion-label>
+          <ion-label position="stacked" aria-labelledby="name">Nombre real</ion-label>
           <ion-input type="text" placeholder="Paquito Pérez" id="name" #name name="name" ngModel required
             [pattern]="'([A-ZÁÉÍÓÚ]{1}[a-záéíóú]+ ?){1,4}'"></ion-input>
         </ion-item>
@@ -22,7 +21,7 @@
       <!-- Username -->
       <ion-row>
         <ion-item>
-          <ion-label position="stacked" for="name">Nombre de Usuario</ion-label>
+          <ion-label position="stacked" aria-labelledby="username">Nombre de Usuario</ion-label>
           <ion-input type="text" placeholder="Paquito23" id="username" #username name="username" ngModel required
             [pattern]="'[A-Za-z0-9-_., ]{6,}'"></ion-input>
         </ion-item>
@@ -31,7 +30,7 @@
       <!-- Email -->
       <ion-row>
         <ion-item>
-          <ion-label position="stacked" for="email">Correo Electrónico</ion-label>
+          <ion-label position="stacked" aria-labelledby="email">Correo Electrónico</ion-label>
           <ion-input type="email" placeholder="cjjg@gmail.com" id="email" #email name="email" ngModel
             required></ion-input>
         </ion-item>
@@ -40,7 +39,7 @@
       <!-- Contraseña -->
       <ion-row>
         <ion-item>
-          <ion-label position="stacked" for="pass">Contraseña</ion-label>
+          <ion-label position="stacked" aria-labelledby="password">Contraseña</ion-label>
           <ion-input type="password" placeholder="123456789Abc" id="password" #password name="password" ngModel
             [pattern]="'[A-Za-z0-9-_., ]{6,}'" minlength="6" required></ion-input>
         </ion-item>
@@ -49,12 +48,12 @@
       <!-- Repetir Contraseña -->
       <ion-row>
         <ion-item>
-          <ion-label position="stacked" for="rpass">Repite la contraseña</ion-label>
+          <ion-label position="stacked" aria-labelledby="rpassword">Repite la contraseña</ion-label>
           <ion-input type="password" placeholder="123456789Abc" #rpassword id="rpassword" name="rpassword" ngModel
             [pattern]="password.value + ''" required></ion-input>
         </ion-item>
       </ion-row>
-      <ion-row class="center">
+      <ion-row class="center lmt">
         <ion-button type="submit" [disabled]="!f.valid">Enviar</ion-button>
       </ion-row>
     </form>
@@ -92,5 +91,9 @@
           (f.controls['rpassword'].dirty || f.controls['rpassword'].touched)">
       <span>Las dos contraseñas tienen que coincidir</span>
     </ion-text>
+  </div>
+
+  <div id="background" class="lmt">
+    <div class="loader"></div>
   </div>
 </ion-content>

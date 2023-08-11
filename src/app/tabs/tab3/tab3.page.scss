@@ -112,3 +112,11 @@ ion-toggle {
         width: 200px;
     }
 }
+
+/* menos de 768px*/
+@media (max-width: 340px) {
+
+    .title {
+        display: none;
+    }
+}

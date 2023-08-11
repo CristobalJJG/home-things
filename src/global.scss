@@ -30,6 +30,8 @@
 @import './theme/sizes.scss';
 @import './theme/variables.scss';
 @import './theme/colors.scss';
+@import './theme/transitions.scss';
+@import './theme/loader.scss';
 
 h1,
 h2,
@@ -80,4 +82,8 @@ ion-button {
 
 .danger {
     color: $danger;
+}
+
+ion-toolbar {
+    display: flex;
 }

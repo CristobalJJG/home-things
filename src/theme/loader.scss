@@ -1,0 +1,68 @@
+/* https://uiverse.io/alexruix/tame-fly-42 */
+.loader {
+    position: relative;
+    width: 120px;
+    height: 90px;
+    margin: 0 auto;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+    }
+
+    &:before {
+        bottom: 30px;
+        left: 50px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: $ion-color-primary;
+        box-shadow: 0 0 10px 0 rgba($ion-color-primary-shade, .5);
+        border: 2px solid $ion-color-primary-tint;
+        @include animateAlternate(loading-bounce, .75s, ease-in-out, infinite, alternate);
+    }
+
+    &:after {
+        right: 0;
+        top: 0;
+        height: 7px;
+        width: 45px;
+        border-radius: 5px;
+        @include animate(loading-step, 1.5s, ease-in-out, infinite);
+    }
+
+    @include keyframes(loading-bounce) {
+        0% {
+            transform: scale(1, 0.7);
+        }
+
+        40% {
+            transform: scale(0.8, 1.2);
+        }
+
+        60% {
+            transform: scale(1, 1);
+        }
+
+        100% {
+            bottom: 140px;
+        }
+    }
+
+    @include keyframes(loading-step) {
+        0% {
+            box-shadow: 15px 10px 0 rgba($ion-background-color, 0),
+                15px 10px 0 $ion-color-step-600,
+                -30px 50px 0 $ion-color-step-600,
+                -70px 90px 0 $ion-color-step-600;
+        }
+
+        100% {
+            box-shadow: 15px 10px 0 $ion-color-step-600,
+                -30px 50px 0 $ion-color-step-600,
+                -70px 90px 0 $ion-color-step-600,
+                -70px 90px 0 rgba($ion-background-color, 0);
+        }
+    }
+}

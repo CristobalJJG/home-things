@@ -1,9 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title slot="center">Inicia Sesión</ion-title>
+    <ion-back-button slot="start" style="width: 10%;"></ion-back-button>
+    <ion-title>Inicia Sesión</ion-title>
+    <span slot="end" style="width: 10%;"></span>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
@@ -45,5 +44,9 @@
       <span>La contraseña solo pueden insertarse alfanuméricos (Letras y números)</span>
       <span> y los caracteres especiales "-_., " y tiene que tener más de 5 caracteres.</span>
     </ion-text>
+  </div>
+
+  <div id="background">
+    <div class="loader"></div>
   </div>
 </ion-content>

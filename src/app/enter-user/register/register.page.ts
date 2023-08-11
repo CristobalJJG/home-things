@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
-  //usa el mismo scss que la pantalla de login
-  styleUrls: ['../login/login.page.scss'],
+  styleUrls: ['../enter-user.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })

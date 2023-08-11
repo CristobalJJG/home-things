@@ -1,4 +1,7 @@
+@import '../../global.scss';
+
 ion-input {
+    padding: 3px;
     transition: all .4s ease-in-out;
 }
 
@@ -11,15 +14,39 @@ ion-item {
     width: 100%;
 }
 
+ion-grid {
+    padding: 0;
+}
+
 .center {
     justify-content: center;
     margin-top: 50px;
+
+    &.lmt {
+        margin-top: 10px;
+    }
+}
+
+#background {
+    margin-top: 6.5rem;
+
+    &.lmt {
+        margin-top: 5.5rem;
+    }
 }
 
 /* Menos de 500px */
 @media (max-width: 500px) {
+    ion-item {
+        margin: 5px 2.5px;
+    }
+
     ion-row {
         width: 90%;
         margin-left: 5%;
+    }
+
+    input {
+        font-size: small;
     }
 }
