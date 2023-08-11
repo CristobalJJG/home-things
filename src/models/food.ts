@@ -1,6 +1,6 @@
 import { PriceValue } from "./priceList";
 
-export interface food {
+export interface Food {
     name: string;
     priceList?: PriceValue[];
     quantity?: number;
