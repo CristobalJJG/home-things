@@ -5,28 +5,36 @@ import { Food } from 'src/models/food';
 import { FoodApiService } from 'src/services/food-api.service';
 import { TranslateService } from 'src/services/translate.service';
 import { QrbarcodeComponent } from '../../qrbarcode/qrbarcode.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-food-fab',
   templateUrl: './food-fab.component.html',
   styleUrls: ['./food-fab.component.scss'],
   standalone: true,
-  imports: [IonicModule, FormsModule, QrbarcodeComponent]
+  imports: [IonicModule, FormsModule, QrbarcodeComponent, CommonModule]
 })
 export class FoodFabComponent {
 
-  constructor(private foodApi: FoodApiService, private translateApi: TranslateService) { }
+  constructor(private foodApi: FoodApiService) { }
 
   product: Food = {
     name: ''
   };
 
-  products = [];
+  products: Food[] = [];
 
   async showProducts(p: string) {
-    let food: any[] = [];
-    this.products = [];
-    this.foodApi.getFood('')
+    if (p.length == 13) {
+      this.products = [];
+      await this.foodApi.getFood(p)
+        .then((data: Food | undefined) => {
+          if (data) this.products.push(data);
+        });
+      console.log(this.products);
+
+    }
+
     /* await this.translateApi.translateEsEn(p)
       .then(data => { food.push(data) })
     await this.foodApi.getFood(food[0])

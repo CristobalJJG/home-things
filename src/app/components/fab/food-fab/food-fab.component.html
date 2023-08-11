@@ -19,6 +19,19 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
+      <ion-item>
+        <ion-input label="Stacked label" labelPlacement="stacked" placeholder="Código de barras"
+          (change)="showProducts(id.value+'')" pattern="[0-9]{13}" #id></ion-input>
+      </ion-item>
+      <ion-item *ngIf="products.length > 0">
+        <ion-list>
+          <ion-item *ngFor="let p of products">
+            <ion-label>{{p.name}}</ion-label>
+            <ion-label><ion-text>{{p.ingredients}}</ion-text></ion-label>
+            <ion-img src="{{p.picture}}" alt="{{p.name}}"></ion-img>
+          </ion-item>
+        </ion-list>
+      </ion-item>
       <app-qrbarcode></app-qrbarcode>
     </ion-content>
   </ng-template>
