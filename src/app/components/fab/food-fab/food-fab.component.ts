@@ -6,7 +6,7 @@ import { QrbarcodeComponent } from '../../qrbarcode/qrbarcode.component';
 import { CommonModule } from '@angular/common';
 import { TabsPage } from 'src/app/tabs/tabs.page';
 import { Type } from 'src/models/type';
-import { LocalStorageService } from 'src/services/local-storage.service';
+import { FoodCardComponent } from 'src/app/tabs/food-tab/food-card/food-card.component';
 
 @Component({
   selector: 'app-food-fab',
@@ -59,13 +59,13 @@ export class FoodFabComponent {
     q.type = type + '';
   }
 
-  async addProductToUser() {
+  addProductToUser() {
     let data = TabsPage.user?.data
     let change = data?.find((d: Type) => d.name === 'kitchen');
     data = data?.filter(d => (d.name != 'kitchen'))
     change?.list.push(this.products[0]);
     if (change) data?.push(change)
-    await this.foodApi.updateFoodList(data);
+    this.foodApi.updateFoodList(data);
   }
 
   /* Modal de anadir producto */
@@ -73,5 +73,11 @@ export class FoodFabComponent {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  /*  */
+  grid = 0;
+  changeGrid() {
+    this.grid = FoodCardComponent.changeAlign(this.grid++);
   }
 }

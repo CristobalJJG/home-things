@@ -4,6 +4,9 @@
   </ion-fab-button>
   <ion-fab-list side="top">
     <ion-fab-button><ion-icon name="add-outline" (click)="setOpen(true)"></ion-icon></ion-fab-button>
+    <ion-fab-button *ngIf="grid==0"><ion-icon name="list-outline" (click)="changeGrid()"></ion-icon></ion-fab-button>
+    <ion-fab-button *ngIf="grid==1"><ion-icon name="apps-outline" (click)="changeGrid()"></ion-icon></ion-fab-button>
+    <ion-fab-button *ngIf="grid==2"><ion-icon name="grid-outline" (click)="changeGrid()"></ion-icon></ion-fab-button>
   </ion-fab-list>
 </ion-fab>
 

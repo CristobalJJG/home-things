@@ -1,0 +1,40 @@
+img {
+    object-fit: cover;
+    border-radius: 5px;
+
+    &.big {
+        height: 200px;
+        width: 100%;
+    }
+
+    &.mid {
+        height: 100px;
+        width: 100px;
+    }
+
+    &.small {
+        height: 75px;
+        width: 75px;
+    }
+}
+
+ion-card {
+
+    &.mid,
+    &.small {
+        display: flex;
+        align-items: center;
+    }
+
+    ion-card-header ion-card-title {
+        font-size: x-large;
+
+        &.mid {
+            font-size: large;
+        }
+
+        &.small {
+            font-size: medium;
+        }
+    }
+}
