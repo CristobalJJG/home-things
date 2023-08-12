@@ -1,26 +1,23 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Food } from 'src/models/food';
 import { FoodApiService } from 'src/services/food-api.service';
-import { TranslateService } from 'src/services/translate.service';
 import { QrbarcodeComponent } from '../../qrbarcode/qrbarcode.component';
 import { CommonModule } from '@angular/common';
+import { TabsPage } from 'src/app/tabs/tabs.page';
+import { Type } from 'src/models/type';
+import { LocalStorageService } from 'src/services/local-storage.service';
 
 @Component({
   selector: 'app-food-fab',
   templateUrl: './food-fab.component.html',
   styleUrls: ['./food-fab.component.scss'],
   standalone: true,
-  imports: [IonicModule, FormsModule, QrbarcodeComponent, CommonModule]
+  imports: [IonicModule, QrbarcodeComponent, CommonModule]
 })
 export class FoodFabComponent {
 
   constructor(private foodApi: FoodApiService) { }
-
-  product: Food = {
-    name: ''
-  };
 
   products: Food[] = [];
 
@@ -31,21 +28,44 @@ export class FoodFabComponent {
         .then((data: Food | undefined) => {
           if (data) this.products.push(data);
         });
-      console.log(this.products);
-
     }
+  }
 
-    /* await this.translateApi.translateEsEn(p)
-      .then(data => { food.push(data) })
-    await this.foodApi.getFood(food[0])
-      .then(data => { food.push(data) });
-    console.log(food);
+  changeQuantity(input: string, type?: string) {
+    switch (input) {
+      case 'add': this.addProduct(); break;
+      case 'remove': this.removeProduct(); break;
+      case 'type': this.changeType(type);
+    }
+  }
 
-    if (food[1]?.length > 0)
-      food[1].forEach((f: never) => {
-        this.products.push(f);
-      });
-    console.log(this.products); */
+  private addProduct() {
+    let q = this.products[0].quantity;
+    q.number++;
+  }
+
+  private removeProduct() {
+    let q = this.products[0].quantity;
+    if (q.number > 0) q.number--;
+  }
+
+  changeQuantityNumber(number: number) {
+    let q = this.products[0].quantity;
+    number < 0 ? q.number = 0 : q.number = number;
+  }
+
+  private changeType(type: string | undefined) {
+    let q = this.products[0].quantity;
+    q.type = type + '';
+  }
+
+  async addProductToUser() {
+    let data = TabsPage.user?.data
+    let change = data?.find((d: Type) => d.name === 'kitchen');
+    data = data?.filter(d => (d.name != 'kitchen'))
+    change?.list.push(this.products[0]);
+    if (change) data?.push(change)
+    await this.foodApi.updateFoodList(data);
   }
 
   /* Modal de anadir producto */

@@ -2,7 +2,36 @@ ion-fab {
     margin-bottom: 60px
 }
 
-ion-list ion-item {
+ion-card {
     display: grid;
+    place-items: center;
+}
 
+ion-img {
+    object-fit: contain;
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+ion-button.tercio {
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+ion-button,
+ion-input {
+    &.tercio {
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+}
+
+ion-grid {
+    padding: 0;
+}
+
+ion-row {
+    align-items: center;
 }

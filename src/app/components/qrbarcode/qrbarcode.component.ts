@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { AlertController, IonicModule } from '@ionic/angular';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 
+/* TODO */
 @Component({
   selector: 'app-qrbarcode',
   templateUrl: './qrbarcode.component.html',
-  styleUrls: ['./qrbarcode.component.scss'],
   imports: [IonicModule],
   standalone: true
 })

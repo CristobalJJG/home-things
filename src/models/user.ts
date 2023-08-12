@@ -1,4 +1,4 @@
-import { Tipe } from "./tipe";
+import { Type } from "./type";
 
 export class User {
 
@@ -12,10 +12,10 @@ export class User {
     lastLoginDate: Date | undefined;
     isKitchenValidated: boolean = false;
     isMoneyValidated: boolean = false;
-    data: Tipe[] = [];
+    data: Type[] = [];
 
     constructor(name: string, surname: string, fullname: string, username: string, email: string
-        , isAdmin: boolean, rd: Date, lld: Date, ikv: boolean, imv: boolean, data: Tipe[]) {
+        , isAdmin: boolean, rd: Date, lld: Date, ikv: boolean, imv: boolean, data: Type[]) {
         this.name = name;
         this.surname = surname;
         this.fullname = fullname;
