@@ -12,13 +12,11 @@ import { Food } from 'src/models/food';
 })
 export class FoodCardComponent {
 
-  static alignProducts: number = 0;
+  static alignProducts: number = 1;
 
   @Input() product: Food | undefined;
 
-  constructor() { }
-
-  static changeAlign(n: number) {
+  static changeAlign() {
     FoodCardComponent.alignProducts++;
     if (FoodCardComponent.alignProducts == 3) FoodCardComponent.alignProducts = 0;
     return FoodCardComponent.alignProducts;

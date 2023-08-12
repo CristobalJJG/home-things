@@ -18,10 +18,7 @@ export class GeneralPage implements OnInit {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
-    console.log(TabsPage.user);
-    if (TabsPage.user) {
-      this.router.navigate(['/tabs/tab3']);
-    }
+    if (TabsPage.user) this.router.navigate(['/tabs/tab3']);
   }
 
 

@@ -60,9 +60,9 @@ export class FoodFabComponent {
   }
 
   addProductToUser() {
-    let data = TabsPage.user?.data
+    let data = TabsPage.user?.data;
     let change = data?.find((d: Type) => d.name === 'kitchen');
-    data = data?.filter(d => (d.name != 'kitchen'))
+    data = data?.filter(d => (d.name != 'kitchen'));
     change?.list.push(this.products[0]);
     if (change) data?.push(change)
     this.foodApi.updateFoodList(data);
@@ -75,9 +75,9 @@ export class FoodFabComponent {
     this.isModalOpen = isOpen;
   }
 
-  /*  */
-  grid = 0;
+  /* Cambio en el grid de productos */
+  grid = 1;
   changeGrid() {
-    this.grid = FoodCardComponent.changeAlign(this.grid++);
+    this.grid = FoodCardComponent.changeAlign();
   }
 }

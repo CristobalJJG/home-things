@@ -12,13 +12,13 @@ export class LocalStorageService {
     return JSON.parse(localStorage.getItem('userData') + '');
   }
 
-  private updateUserData(snap: any) {
+  private async updateUserData(snap: any) {
     localStorage.setItem('userData', JSON.stringify(snap));
   }
 
-  updateData(data: Type[] | undefined) {
+  async updateData(data: Type[] | undefined) {
     let snap = this.getSnap()
     snap.data = data;
-    this.updateUserData(snap);
+    await this.updateUserData(snap);
   }
 }

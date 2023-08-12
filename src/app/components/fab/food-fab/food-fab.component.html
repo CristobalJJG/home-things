@@ -54,8 +54,8 @@
               </ion-col>
               <!-- Escribir numero y mostrar valor -->
               <ion-col>
-                <ion-input (keypress)="changeQuantityNumber(+(id.value + ''))" class="tercio"
-                  value="{{products[0].quantity.number}}" type="number"></ion-input>
+                <ion-input (change)="changeQuantityNumber(+(quantity.value+'')+0)" class="tercio"
+                  value="{{products[0].quantity.number}}" type="number" #quantity></ion-input>
               </ion-col>
               <!-- Restar -->
               <ion-col>
@@ -69,7 +69,7 @@
         <!-- Tipo - bricks, gramos, botellas, packs... -->
         <ion-item>
           <ion-input label="Tipo de cantidad" labelPlacement="stacked" placeholder="Bricks, gramos, botellas, packs..."
-            pattern="[a-zA-Z.,]+" #id></ion-input>
+            pattern="[a-zA-Z.,]+" (change)="changeQuantity('type', type.value+'')" #type></ion-input>
         </ion-item>
 
         <!-- Boton de enviar -->

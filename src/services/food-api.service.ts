@@ -44,19 +44,19 @@ export class FoodApiService {
   async updateFoodList(data: Type[] | undefined) {
     let user = this.auth.getUserInfo();
     this.ls.updateData(data);
-    if (user)
-      await setDoc(doc(this.db, "users", TabsPage.user!.email.split('@')[0]), {
-        data: user.data,
-        email: user.email,
-        fullname: user.fullname,
-        isAdmin: user.isAdmin,
-        isKitchenValidated: user.isKitchenValidated,
-        isMoneyValidated: user.isMoneyValidated,
-        lastLoginDate: user.lastLoginDate,
-        name: user.name,
-        registerDate: user.registerDate,
-        surname: user.surname,
-        username: user.username
-      });
+    user = this.auth.getUserInfo();
+    await setDoc(doc(this.db, "users", TabsPage.user!.email.split('@')[0]), {
+      data: user!.data,
+      email: user!.email,
+      fullname: user!.fullname,
+      isAdmin: user!.isAdmin,
+      isKitchenValidated: user!.isKitchenValidated,
+      isMoneyValidated: user!.isMoneyValidated,
+      lastLoginDate: user!.lastLoginDate,
+      name: user!.name,
+      registerDate: user!.registerDate,
+      surname: user!.surname,
+      username: user!.username
+    })
   }
 }
