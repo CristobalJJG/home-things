@@ -1,42 +1,21 @@
-<!-- <ion-card *ngIf="alignType()==0">
-  <img class="big" alt="{{product?.name}}" src="{{product?.picture}}" />
+<ion-card *ngIf="alignType()==0">
+  <img class="big" loading="lazy" alt="{{product?.name}}" src="{{product?.picture}}" />
   <ion-card-header>
     <ion-card-title>{{product?.name}}</ion-card-title>
+    <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>
   </ion-card-header>
 </ion-card>
 
 <ion-card class="mid" *ngIf="alignType()==2">
-  <img class="mid" alt="{{product?.name}}" src="{{product?.picture}}" />
+  <img class="mid" loading="lazy" alt="{{product?.name}}" src="{{product?.picture}}" />
   <ion-card-header>
     <ion-card-title class="mid">{{product?.name}}</ion-card-title>
+    <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>
   </ion-card-header>
 </ion-card>
 
 <ion-card class="small" *ngIf="alignType()==1">
-  <img class="small" alt="{{product?.name}}" src="{{product?.picture}}" />
-  <ion-card-header>
-    <ion-card-title class="small">{{product?.name}}</ion-card-title>
-  </ion-card-header>
-</ion-card> -->
-
-<ion-card>
-  <img class="big" alt="{{product?.name}}" src="{{product?.picture}}" />
-  <ion-card-header>
-    <ion-card-title>{{product?.name}}</ion-card-title>
-    <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
-
-<ion-card class="mid">
-  <img class="mid" alt="{{product?.name}}" src="{{product?.picture}}" />
-  <ion-card-header>
-    <ion-card-title class="mid">{{product?.name}}</ion-card-title>
-    <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
-
-<ion-card class="small">
-  <img class="small" alt="{{product?.name}}" src="{{product?.picture}}" />
+  <img class="small" loading="lazy" alt="{{product?.name}}" src="{{product?.picture}}" />
   <ion-card-header>
     <ion-card-title class="small">{{product?.name}}</ion-card-title>
     <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>

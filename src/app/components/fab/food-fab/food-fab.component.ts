@@ -66,6 +66,8 @@ export class FoodFabComponent {
     change?.list.push(this.products[0]);
     if (change) data?.push(change)
     this.foodApi.updateFoodList(data);
+    this.setToastOpen(true);
+    this.setOpen(false);
   }
 
   /* Modal de anadir producto */
@@ -73,6 +75,12 @@ export class FoodFabComponent {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  /* Abrir Toast */
+  isToastOpen = false;
+  setToastOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
   }
 
   /* Cambio en el grid de productos */
