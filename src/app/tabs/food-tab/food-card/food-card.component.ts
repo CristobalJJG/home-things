@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { Food } from 'src/models/food';
+import { Food } from 'src/models/comida/food';
+import { TabsPage } from '../../tabs.page';
+import { FoodApiService } from 'src/services/food-api.service';
 
 @Component({
   selector: 'app-food-card',
@@ -16,6 +18,8 @@ export class FoodCardComponent {
 
   @Input() product: Food | undefined;
 
+  constructor(private foodApi: FoodApiService) { }
+
   static changeAlign() {
     FoodCardComponent.alignProducts++;
     if (FoodCardComponent.alignProducts == 3) FoodCardComponent.alignProducts = 0;
@@ -24,5 +28,22 @@ export class FoodCardComponent {
 
   alignType() {
     return FoodCardComponent.alignProducts;
+  }
+
+  addProduct() {
+    let q = this.product?.quantity;
+    if (q) q.number++;
+    this.addProductToUser();
+  }
+
+  removeProduct() {
+    let q = this.product?.quantity;
+    if (q && q.number > 0) q.number--;
+    this.addProductToUser();
+  }
+
+  addProductToUser() {
+    let data = TabsPage.user?.changeItemInData('kitchen');
+    this.foodApi.updateFoodList(data);
   }
 }

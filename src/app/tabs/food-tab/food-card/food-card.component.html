@@ -4,6 +4,9 @@
     <ion-card-title>{{product?.name}}</ion-card-title>
     <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>
   </ion-card-header>
+  <ion-card-content>
+    <ng-container *ngIf="false; else buttons"> </ng-container>
+  </ion-card-content>
 </ion-card>
 
 <ion-card class="mid" *ngIf="alignType()==2">
@@ -12,6 +15,9 @@
     <ion-card-title class="mid">{{product?.name}}</ion-card-title>
     <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>
   </ion-card-header>
+  <ion-card-content>
+    <ng-container *ngIf="false; else buttons"> </ng-container>
+  </ion-card-content>
 </ion-card>
 
 <ion-card class="small" *ngIf="alignType()==1">
@@ -20,4 +26,20 @@
     <ion-card-title class="small">{{product?.name}}</ion-card-title>
     <ion-card-subtitle>{{product?.quantity?.number}} {{product?.quantity?.type?.toLowerCase()}}</ion-card-subtitle>
   </ion-card-header>
+  <ion-card-content>
+    <ng-container *ngIf="false; else buttons"> </ng-container>
+  </ion-card-content>
 </ion-card>
+
+<ng-template #buttons>
+  <!-- Sumar -->
+  <ion-col>
+    <ion-button fill="clear" class="tercio" (click)="addProduct()">+</ion-button>
+  </ion-col>
+  <!-- Escribir numero y mostrar valor -->
+  <!-- Restar -->
+  <ion-col>
+    <ion-button fill="clear" class="tercio" [disabled]="product!.quantity!.number <= 0"
+      (click)="removeProduct()">-</ion-button>
+  </ion-col>
+</ng-template>

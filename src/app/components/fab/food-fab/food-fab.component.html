@@ -15,10 +15,18 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start" class="tercio">
-          <ion-button (click)="setOpen(false)">Cancel</ion-button>
+          <ion-button (click)="setOpen(false)">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+            Cancel
+          </ion-button>
         </ion-buttons>
-        <ion-title>Welcome</ion-title>
-        <span slot="end" class="cuarto"></span>
+        <ion-title>Producto</ion-title>
+        <ion-buttons slot="end" class="tercio">
+          <ion-button (click)="clean()">
+            <ion-icon class="sep" name="trash-bin-outline"></ion-icon>
+            Limpiar
+          </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
@@ -76,7 +84,10 @@
         <ion-grid class="center">
           <ion-row>
             <ion-col>
-              <ion-button (click)="addProductToUser()">Añadir</ion-button>
+              <ion-button (click)="addProductToUser()">
+                <ion-icon class="sep" name="save-outline"></ion-icon>
+                Añadir
+              </ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

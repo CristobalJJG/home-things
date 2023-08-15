@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
 import { TabsPage } from 'src/app/tabs/tabs.page';
-import { Food } from 'src/models/food';
 import { AuthService } from './auth-service.service';
 import { LocalStorageService } from './local-storage.service';
 import { Type } from 'src/models/type';
+import { Food } from 'src/models/comida/food';
 
 @Injectable({
   providedIn: 'root'

@@ -1,3 +1,4 @@
+import { Food } from "./comida/food";
 import { Type } from "./type";
 
 export class User {
@@ -44,4 +45,22 @@ export class User {
             user['data']
         );
     }
+
+    addItemInData(section: string, itemList: Food) {
+        let data = this.data;
+        let change = data?.find((d: Type) => d.name === section);
+        data = data?.filter(d => (d.name != section));
+        change?.list.push(itemList);
+        if (change) data?.push(change);
+        return data;
+    }
+
+    changeItemInData(section: string) {
+        let data = this.data;
+        let change = data?.find((d: Type) => d.name === section);
+        data = data?.filter(d => (d.name != section));
+        if (change) data?.push(change);
+        return data;
+    }
+
 }

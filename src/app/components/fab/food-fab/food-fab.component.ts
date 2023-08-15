@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { Food } from 'src/models/food';
 import { FoodApiService } from 'src/services/food-api.service';
 import { QrbarcodeComponent } from '../../qrbarcode/qrbarcode.component';
 import { CommonModule } from '@angular/common';
 import { TabsPage } from 'src/app/tabs/tabs.page';
 import { Type } from 'src/models/type';
 import { FoodCardComponent } from 'src/app/tabs/food-tab/food-card/food-card.component';
+import { Food } from 'src/models/comida/food';
 
 @Component({
   selector: 'app-food-fab',
@@ -59,14 +59,16 @@ export class FoodFabComponent {
     q.type = type + '';
   }
 
+  clean(id?: string) {
+    this.products = [];
+    if (id) id = ''
+  }
+
   addProductToUser() {
-    let data = TabsPage.user?.data;
-    let change = data?.find((d: Type) => d.name === 'kitchen');
-    data = data?.filter(d => (d.name != 'kitchen'));
-    change?.list.push(this.products[0]);
-    if (change) data?.push(change)
+    let data = TabsPage.user?.addItemInData('kitchen', this.products[0]);
     this.foodApi.updateFoodList(data);
     this.setToastOpen(true);
+    this.clean();
     this.setOpen(false);
   }
 
