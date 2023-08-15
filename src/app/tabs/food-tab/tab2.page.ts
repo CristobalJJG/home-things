@@ -15,8 +15,12 @@ import { CommonModule } from '@angular/common';
 export class Tab2Page {
 
   user = TabsPage.user;
-  products = this.user?.data.find(d => (d.name == 'kitchen'))?.list
+  products = this.user!.data.find(d => (d.name == 'kitchen'))!.list
+  results = [...this.products];
 
   constructor() { }
-
+  filterProducts(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.results = this.products.filter((d) => d.name.toLowerCase().indexOf(query) > -1);
+  }
 }

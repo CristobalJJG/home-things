@@ -12,7 +12,9 @@ import { FoodApiService } from 'src/services/food-api.service';
   standalone: true,
   imports: [IonicModule, CommonModule]
 })
+
 export class FoodCardComponent {
+
 
   static alignProducts: number = 1;
 
@@ -22,7 +24,8 @@ export class FoodCardComponent {
 
   static changeAlign() {
     FoodCardComponent.alignProducts++;
-    if (FoodCardComponent.alignProducts == 3) FoodCardComponent.alignProducts = 0;
+    if (FoodCardComponent.alignProducts == 3)
+      FoodCardComponent.alignProducts = 0;
     return FoodCardComponent.alignProducts;
   }
 
@@ -47,3 +50,7 @@ export class FoodCardComponent {
     this.foodApi.updateFoodList(data);
   }
 }
+
+const BIG = 'big';
+const MID = 'mid';
+const SMALL = 'small';

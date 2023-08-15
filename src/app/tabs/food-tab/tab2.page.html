@@ -7,8 +7,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div *ngIf="products">
-    <app-food-card *ngFor="let p of products" [product]="p"></app-food-card>
+  <ion-searchbar show-clear-button="focus" placeholder="Buscar..." (ionInput)="filterProducts($event)"></ion-searchbar>
+  <div *ngIf="results">
+    <app-food-card *ngFor="let p of results" [product]="p"></app-food-card>
   </div>
 </ion-content>
 <app-food-fab></app-food-fab>

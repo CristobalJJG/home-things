@@ -28,13 +28,13 @@ ion-card {
 
     ion-card-header ion-card-title {
         font-size: x-large;
+    }
 
-        &.mid {
-            font-size: large;
-        }
+    &.mid ion-card-header ion-card-title {
+        font-size: large;
+    }
 
-        &.small {
-            font-size: medium;
-        }
+    &.small ion-card-header ion-card-title {
+        font-size: medium;
     }
 }
