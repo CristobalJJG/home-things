@@ -1,15 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title> Comida </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-searchbar show-clear-button="focus" placeholder="Buscar..." (ionInput)="filterProducts($event)"></ion-searchbar>
-  <div *ngIf="results">
-    <app-food-card *ngFor="let p of results" [product]="p"></app-food-card>
+  <div *ngIf="getResults()">
+    <app-food-card *ngFor="let p of getResults()" [product]="p"></app-food-card>
   </div>
 </ion-content>
 <app-food-fab></app-food-fab>

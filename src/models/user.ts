@@ -13,10 +13,11 @@ export class User {
     lastLoginDate: Date | undefined;
     isKitchenValidated: boolean = false;
     isMoneyValidated: boolean = false;
+    isShoppingValidated: boolean = false;
     data: Type[] = [];
 
     constructor(name: string, surname: string, fullname: string, username: string, email: string
-        , isAdmin: boolean, rd: Date, lld: Date, ikv: boolean, imv: boolean, data: Type[]) {
+        , isAdmin: boolean, rd: Date, lld: Date, ikv: boolean, imv: boolean, isv: boolean, data: Type[]) {
         this.name = name;
         this.surname = surname;
         this.fullname = fullname;
@@ -27,6 +28,7 @@ export class User {
         this.lastLoginDate = lld;
         this.isKitchenValidated = ikv;
         this.isMoneyValidated = imv;
+        this.isShoppingValidated = isv;
         this.data = data;
     }
 
@@ -42,6 +44,7 @@ export class User {
             user['lastLoginDate'],
             user['isKitchenValidated'],
             user['isMoneyValidated'],
+            user['isShoppingValidated'],
             user['data']
         );
     }

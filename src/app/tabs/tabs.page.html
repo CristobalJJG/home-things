@@ -1,28 +1,34 @@
 <ion-tabs>
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" style="overflow-x: auto;">
     <!-- Pestaña de General -->
     <ion-tab-button tab="general" *ngIf="userRegistered()">
       <ion-icon name="albums-outline"></ion-icon>
-      <ion-label>General</ion-label>
+      <ion-label class="tab-label">General</ion-label>
     </ion-tab-button>
     <!-- Pestaña de Gastos -->
     <ion-tab-button tab="tab1" *ngIf="userRegistered() && isMoneyValidated() && maxTabs()">
       <ion-icon name="wallet-outline"></ion-icon>
-      <ion-label>Gastos</ion-label>
+      <ion-label class="tab-label">Gastos</ion-label>
     </ion-tab-button>
     <!-- Pestaña de Comida -->
     <ion-tab-button tab="tab2" *ngIf="userRegistered() && isKitchenValidated() && maxTabs()">
       <ion-icon name="fast-food-outline"></ion-icon>
-      <ion-label>Comida</ion-label>
+      <ion-label class="tab-label">Comida</ion-label>
     </ion-tab-button>
 
+    <!-- Pestaña de Lista de Compra -->
+    <ion-tab-button tab="shopping-basket" *ngIf="userRegistered() && isShoppingValidated() && maxTabs()">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label class="tab-label">Compra</ion-label>
+    </ion-tab-button>
     <!-- Pestaña de usuario -->
     <ion-tab-button tab="tab3">
       <ion-icon name="person-outline"></ion-icon>
-      <ion-label>Usuario</ion-label>
+      <ion-label class="tab-label">Usuario</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 
-  <ion-toast [isOpen]="isToastOpen" message="Solo pueden haber 2 secciones, además de General y Usuario"
+  <ion-toast [isOpen]="isToastOpen"
+    message="Solo pueden haber 2 secciones, además de General y Usuario. El resto aparecerán en la Pestaña General."
     [duration]="4000" (didDismiss)="setOpen(false)"></ion-toast>
 </ion-tabs>

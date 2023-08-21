@@ -85,9 +85,10 @@ export class FoodFabComponent {
     this.isToastOpen = isOpen;
   }
 
+  /* TODO -  Realizar de una forma correcta las 3 vistas de las cartas, grande, mediano y pequeno */
   /* Cambio en el grid de productos */
-  grid = 1;
+  /* grid = 0;
   changeGrid() {
     this.grid = FoodCardComponent.changeAlign();
-  }
+  } */
 }

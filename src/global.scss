@@ -50,11 +50,11 @@ ion-input {
 }
 
 ion-label {
-    font-size: 18px !important;
+    font-size: 18px;
 }
 
 ion-input {
-    font-size: 20px !important;
+    font-size: 20px;
 }
 
 ion-item {
@@ -102,4 +102,8 @@ ion-toolbar {
 
 .quinto {
     width: 20%;
+}
+
+.tab-label {
+    font-size: 14px;
 }

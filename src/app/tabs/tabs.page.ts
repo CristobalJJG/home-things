@@ -18,6 +18,10 @@ export class TabsPage {
   static notUserRegistered = false;
 
   constructor(private auth: AuthService) {
+    this.getUser();
+  }
+
+  async getUser() {
     let aux = this.auth.getUserInfo();
     if (aux != undefined) {
       TabsPage.notUserRegistered = true;
@@ -29,16 +33,20 @@ export class TabsPage {
 
   isMoneyValidated() { return TabsPage.user?.isMoneyValidated }
   isKitchenValidated() { return TabsPage.user?.isKitchenValidated }
+  isShoppingValidated() { return TabsPage.user?.isShoppingValidated }
   userRegistered() { return TabsPage.notUserRegistered }
 
   maxTabs() {
     let c = 0;
     if (TabsPage.user?.isMoneyValidated) c++;
     if (TabsPage.user?.isKitchenValidated) c++;
+    if (TabsPage.user?.isShoppingValidated) c++;
     if (TabsPage.notUserRegistered) c++;
     if (c > this.MAX_TABS) this.setOpen(true)
     return c <= this.MAX_TABS;
   }
+
+
 
   isToastOpen = false;
   setOpen(isOpen: boolean) {

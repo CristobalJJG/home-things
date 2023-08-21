@@ -10,6 +10,7 @@ export const routes: Routes = [
       { path: 'tab1', loadComponent: () => import('./spend-tab/tab1.page').then((m) => m.Tab1Page) },
       { path: 'tab2', loadComponent: () => import('./food-tab/tab2.page').then((m) => m.Tab2Page) },
       { path: 'tab3', loadComponent: () => import('./user-tab/tab3.page').then((m) => m.Tab3Page) },
+      { path: 'shopping-basket', loadComponent: () => import('./shopping-basket/shopping-basket.component').then((m) => m.ShoppingBasketComponent) },
       { path: '', redirectTo: '/tabs/tab3', pathMatch: 'full' },
     ],
   },

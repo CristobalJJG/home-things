@@ -2,11 +2,14 @@
   <ion-fab-button>
     <ion-icon name="chevron-up-circle"></ion-icon>
   </ion-fab-button>
+
   <ion-fab-list side="top">
     <ion-fab-button><ion-icon name="add-outline" (click)="setOpen(true)"></ion-icon></ion-fab-button>
+    <!-- TODO -  Realizar de una forma correcta las 3 vistas de las cartas, grande, mediano y pequeno
     <ion-fab-button *ngIf="grid==0" (click)="changeGrid()"><ion-icon name="list-outline"></ion-icon></ion-fab-button>
     <ion-fab-button *ngIf="grid==1" (click)="changeGrid()"><ion-icon name="apps-outline"></ion-icon></ion-fab-button>
     <ion-fab-button *ngIf="grid==2" (click)="changeGrid()"><ion-icon name="grid-outline"></ion-icon></ion-fab-button>
+    -->
   </ion-fab-list>
 </ion-fab>
 

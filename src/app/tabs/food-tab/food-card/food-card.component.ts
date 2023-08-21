@@ -16,7 +16,7 @@ import { FoodApiService } from 'src/services/food-api.service';
 export class FoodCardComponent {
 
 
-  static alignProducts: number = 1;
+  static alignProducts: number = 0;
 
   @Input() product: Food | undefined;
 
@@ -50,7 +50,3 @@ export class FoodCardComponent {
     this.foodApi.updateFoodList(data);
   }
 }
-
-const BIG = 'big';
-const MID = 'mid';
-const SMALL = 'small';

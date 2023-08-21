@@ -25,6 +25,7 @@ export class FoodApiService {
           product.push({
             id: foodId,
             name: p.product_name_es || p.product_name,
+            internName: p.internName || '',
             ingredients: p.ingredients_text_es || data.data.product.ingredients_text,
             picture: p.image_url,
             quantity: {

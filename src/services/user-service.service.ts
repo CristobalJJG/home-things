@@ -71,6 +71,7 @@ export class UserService {
         lastLoginDate: user.lastLoginDate,
         isKitchenValidated: user.isKitchenValidated,
         isMoneyValidated: user.isMoneyValidated,
+        isShoppingValidated: user.isShoppingValidated,
         data: user.data || []
       });
       /* window.location.reload(); */
