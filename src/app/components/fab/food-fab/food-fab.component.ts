@@ -7,13 +7,14 @@ import { TabsPage } from 'src/app/tabs/tabs.page';
 import { Type } from 'src/models/type';
 import { FoodCardComponent } from 'src/app/tabs/food-tab/food-card/food-card.component';
 import { Food } from 'src/models/comida/food';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-food-fab',
   templateUrl: './food-fab.component.html',
   styleUrls: ['./food-fab.component.scss'],
   standalone: true,
-  imports: [IonicModule, QrbarcodeComponent, CommonModule]
+  imports: [IonicModule, QrbarcodeComponent, CommonModule, FormsModule]
 })
 export class FoodFabComponent {
 
@@ -57,6 +58,11 @@ export class FoodFabComponent {
   private changeType(type: string | undefined) {
     let q = this.products[0].quantity;
     q.type = type + '';
+  }
+
+  changeName(product: any) {
+    console.log(product);
+    //this.products[0].name = product;
   }
 
   clean(id?: string) {
