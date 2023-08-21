@@ -48,12 +48,19 @@
           <!-- Header con el nombre -->
           <ion-card-header>
             <ion-card-title>
-              <ion-input [(ngModel)]="products[0].name" value="{{p.name}}" class="name"></ion-input>
+              <ion-input [(ngModel)]="products[0].name" value="{{p.name}}" class="name" type="text"></ion-input>
             </ion-card-title>
           </ion-card-header>
           <!-- Contenido - ingredientes y la foto -->
           <ion-card-content>
             <ion-img loading="lazy" src="{{p.picture}}" alt="{{p.name}}"></ion-img>
+            <!-- TODO - Recoger imagenes, subirlas y mostrarlas
+            <ion-label>Insertar desde dispositivo:</ion-label>
+            <ion-input type="file"></ion-input>
+             -->
+            <ion-label>Imagen desde enlace:</ion-label>
+            <ion-input type="text" [(ngModel)]="products[0].picture"
+              placeholder="http://producto.com/img.png"></ion-input>
           </ion-card-content>
         </ion-card>
         <!-- Cantidad -->
